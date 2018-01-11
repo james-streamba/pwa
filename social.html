@@ -19,7 +19,19 @@
         <div class="container grid-lg" style="padding-top:15px;">
            <h1>Social</h1>
         </div>
-
+        <script>
+            if ('serviceWorker' in navigator) {
+                console.log('Beginning to register service worker.')
+                
+                navigator.serviceWorker.register('sw.js')
+                    .then(function(reg) {
+                        console.log('Registered service worker successfully. Scope is ' + reg.scope);
+                    })
+                    .catch(function(error) {
+                        console.log('Failed to register service worker: ' + error);
+                    });
+            }
+        </script>
         
     </body>
 </html>
