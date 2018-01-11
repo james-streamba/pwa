@@ -35,7 +35,7 @@
 
         <script>
             const getSessions = () => {
-                return fetch("/api/sessions.json")
+                return fetch("./api/sessions.json")
                     .then(response =>  response.json())
                     .then(response => {
                         console.log('Received sessions from api', response)
