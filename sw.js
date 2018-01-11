@@ -4,7 +4,7 @@ const version = 'v2';
 self.addEventListener('install', function(event) {
     console.log('Installing service worker for DDD Scotland');
     event.waitUntil(
-        caches.open('version').then(function(cache) {
+        caches.open(version).then(function(cache) {
           return cache.addAll([
             'api/sessions.json',
             'css/site.css',
@@ -36,8 +36,9 @@ self.addEventListener('install', function(event) {
             'schedule-session.html',
             'schedule.html',
             'social.html'
-          ]);
-        }).catch(error => console.error('Failed to install service worker', error))
+          ])
+          .catch(error => console.error('Failed to install service worker', error);
+        })
       );
 });
 
