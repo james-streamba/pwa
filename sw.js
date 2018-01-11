@@ -32,6 +32,7 @@ self.addEventListener('install', function(event) {
             'img/robinminto.jpg',
             'img/stuartashworth.jpg',
             'img/placeholder.jpg',
+            'img/marniemccormack.jpg',
             'index.html',
             'schedule-session.html',
             'schedule.html',

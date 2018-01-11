@@ -21,62 +21,6 @@
         </div>
 
         <script>
-            const getSessions = () => {
-                return fetch("api/sessions.json")
-                    .then(response =>  response.json())
-                    .then(response => {
-                        console.log('Received sessions from api', response)
-                        return response;
-                    })
-                    .catch(error => console.error('Error receiving sessions from api', error));
-            }
-
-            const groupSessionsByLocation = (sessions) => {
-                return sessions.reduce((locationMap, current) => {
-                    if(locationMap[current.location]){
-                        locationMap[current.location] = [...locationMap[current.location], current];
-                    } else {
-                        locationMap[current.location] = [current];
-                    }
-                    return locationMap;
-                }, {});
-            }
-
-            const createSessionMarkup = (session) => {
-                return `
-                    <div class="tile">
-                        <div class="columns">
-                            <div class="column col-1 col-lg-1 col-md-1 col-sm-12">
-                                <p class="tile-title">${session.startsAt.substring(11, 16)}</p>
-                            </div>
-                            <div class="column col-10 col-lg-10 col-md-9 col-sm-12">
-                                <div class="tile-content">
-                                    <p class="tile-title">${session.title}</p>
-                                    <p class="tile-subtitle text-gray">${session.abstract}</p>
-                                </div>
-                            </div>
-                            <div class="column col-1 col-lg-1 col-md-2 hide-sm" style="padding-top:10px;">
-                                <div class="tile-icon center-align">
-                                    <figure class="avatar avatar-xl" data-initial="${session.speaker.split(" ").map((n)=>n[0]).join("")}">
-                                        <img src="img/${session.speaker.toLowerCase().replace(/ /g, '')}.jpg">
-                                    </figure>
-                                    <p class="tile-title" style="padding-top:10px;">${session.speaker}</p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>`;
-            }
-
-            getSessions().then(sessions => {
-                /*const sessionsGroupedByLocation = groupSessionsByLocation(sessions);*/
-                const sessionsMarkup = sessions.map(session => createSessionMarkup(session)).join('');
-                const tabContentDiv = document.getElementById('tab-content');
-                tabContentDiv.innerHTML = sessionsMarkup;
-            });
-        </script>
-
-        <script>
             if ('serviceWorker' in navigator) {
                 console.log('Beginning to register service worker.')
                 
