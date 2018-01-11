@@ -10,7 +10,7 @@ self.addEventListener('install', function(event) {
             'css/site.css',
             'css/spectre-icons.min.css',
             'css/spectre.min.css',
-            'ddd-logo.png',
+            'img/ddd-logo.png',
             'img/davidrankin.jpg',
             'img/donwibier.jpg',
             'img/filipw.jpg',
