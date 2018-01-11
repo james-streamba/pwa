@@ -37,7 +37,7 @@ self.addEventListener('install', function(event) {
             'schedule.html',
             'social.html'
           ]);
-        })
+        }).catch(error => console.error('Failed to install service worker', error))
       );
 });
 
